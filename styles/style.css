@@ -1,16 +1,47 @@
+@font-face {
+    font-family: work;
+    src: url(../fonts/Work_Sans/static/WorkSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: work-bold;
+    src: url(../fonts/Work_Sans/static/WorkSans-SemiBold.ttf);
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: work, sans-serif;
 }
 
 .canvas-container {
     height: min-content;
     width: fit-content;
-    background-color: hotpink;
     border: 2px solid black;
-    margin: 5rem auto;
+    margin: 3rem auto ;
+}
+
+.txt-change {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.txt-change #add-txt {
+    font-size: 1.3rem;
+}
+
+.gallery .gallery-img {
+    max-width: 150px;
+    margin: 10px;
+    filter: opacity(.5);
+    transition: filter ease-in-out .4s;
+    cursor: pointer;
+}
+
+.gallery .gallery-img:hover {
+    filter: opacity(1);
 }
