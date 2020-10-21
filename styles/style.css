@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.canvas-container {
+    height: min-content;
+    width: fit-content;
+    background-color: hotpink;
+    border: 2px solid black;
+    margin: 5rem auto;
+}
