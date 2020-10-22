@@ -3,15 +3,53 @@
 onRenderGallery();
 
 function onTxtChange() {
+    const idx = getCurrLineIdx()
     var changedTxt = document.querySelector('#add-txt').value;
-    gMeme.lines[0].txt = changedTxt.toUpperCase();
-    changedTxt = '';
-    drawImg(gCurrImgId);
+    gMeme.lines[idx].txt = changedTxt.toUpperCase();
+    drawImg();
+}
+
+function onCreateNewLine() {
+    createNewLine();
+    drawImg();
+}
+
+function onDeleteLine() {
+    deleteLine();
+    drawImg();
+}
+
+function onChangeTxtSize(val) {
+    changeTxtSize(val);
+    drawImg();
+}
+
+function onMoveTxt(val) {
+    moveTxt(val);
+    drawImg();
+}
+
+function onAlignTxt(val) {
+    alignTxt(val);
+}
+
+function onChangeTxtFill(val) {
+    changeTxtFill(val);
+}
+
+function onChangeTxtStroke(id, val) {
+    changeTxtStroke(val);
 }
 
 function onChangeImg(imgId) {
-    drawImg(imgId);
     changeCurrImg(imgId);
+    drawImg();
+}
+
+function onChangeFocus(val) {
+    changeFocus(val);
+    document.querySelector('#add-txt').value = '';
+    drawImg();
 }
 
 function onRenderGallery() {

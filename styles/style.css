@@ -24,14 +24,18 @@ body {
     margin: 3rem auto ;
 }
 
-.txt-change {
+.txt-editor {
     text-align: center;
     font-size: 1.5rem;
     margin-top: 1.5rem;
 }
 
-.txt-change #add-txt {
+.txt-editor #add-txt {
     font-size: 1.3rem;
+}
+
+.line-edit {
+    text-align: center;
 }
 
 .gallery .gallery-img {

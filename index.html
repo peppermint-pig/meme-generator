@@ -5,14 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mister Meme</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 </head>
 <body>
 
-    <section class="txt-change">
+    <section class="txt-editor">
         <label for="add-txt">Say something funny:</label>
-        <input type="text" name="add-txt" id="add-txt" placeholder="Your text goes here">
-        <button onclick="onTxtChange()">Change</button>
+        <input type="text" name="add-txt" id="add-txt" placeholder="Your text goes here" oninput="onTxtChange()">
+        <button class="add-line" onclick="onCreateNewLine()">+</button>
+        <button class="delete-line" onclick="onDeleteLine()"><i class="fas fa-trash-alt"></i></button>
+        <button class="txt-lrg" onclick="onChangeTxtSize('plus')">T+</button>
+        <button class="txt-sml" onclick="onChangeTxtSize('minus')">T-</button>
+        <button class="txt-up" onclick="onMoveTxt('up')">⬆︎</button>
+        <button class="txt-down" onclick="onMoveTxt('down')">⬇︎</button>
+        <button class="txt-down" onclick="onMoveTxt('left')">⬅︎</button>
+        <button class="txt-down" onclick="onMoveTxt('right')">➡︎</button>
+        <label for="fill-color"><i class="fas fa-fill-drip"></i></label>
+        <input type="color" name="fill-color" id="fill-color" value="#ffffff" oninput="onChangeTxtFill(this.value)">
+        <label for="stroke-color"><i class="fas fa-paint-brush"></i></label>
+        <input type="color" name="stroke-color" id="stroke-color" oninput="onChangeTxtStroke(this.value)">
+        <select name="txt-font" id="txt-font">
+            <option value="Impact">Impact</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="Lucida Sans">Lucida</option>
+        </select>
+        <button class="focus-older-txt" onclick="onChangeFocus('older')">Change Focus ⬆︎</button>
+        <button class="focus-newer-txt" onclick="onChangeFocus('newer')">Change Focus ⬇︎</button>
+        <button class="focus-none-txt" onclick="onChangeFocus('none')">Remove Focus ✖︎</button>
+        <button class="align-left" onclick="alignTxt('start')"><i class="fas fa-align-left"></i></button>
+        <button class="align-center" onclick="alignTxt('center')"><i class="fas fa-align-center"></i></button>
+        <button class="align-right" onclick="alignTxt('end')"><i class="fas fa-align-right"></i></button>
     </section>
+
    
     <div class="canvas-container">
         <canvas id="meme-canvas" height="500" width="500"></canvas>
