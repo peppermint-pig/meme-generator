@@ -103,26 +103,25 @@ function  moveTxt(val) {
     if (val === 'right') gMeme.lines[idx].x += 2;
 }
 
-function textChange(val) {
-    
-}
-
-function alignTxt(val) {
+function txtChange(id, val) {
     const idx = getCurrLineIdx();
-    gMeme.lines[idx].align = val;
-    drawImg();
-}
-
-function changeTxtFill(val) {
-    const idx = getCurrLineIdx();
-    gMeme.lines[idx].fillColor = val;
-    drawImg();
-}
-
-function changeTxtStroke(val) {
-    const idx = getCurrLineIdx();
-    gMeme.lines[idx].strokeColor = val;
-    drawImg();
+    let currLine = gMeme.lines[idx];
+    switch (id) {
+        case 'fill-color':
+           currLine.fillColor = val 
+           break;
+        case 'stroke-color':
+            currLine.strokeColor = val
+            break;
+        case 'txt-font':
+            currLine.font = val;
+            break;
+        case 'align-left':
+        case 'align-center':
+        case 'align-right':
+            currLine.align = val;
+            break;
+    }
 }
 
 function changeFocus(val) {

@@ -21,20 +21,22 @@
         <button class="txt-down" onclick="onMoveTxt('left')">⬅︎</button>
         <button class="txt-down" onclick="onMoveTxt('right')">➡︎</button>
         <label for="fill-color"><i class="fas fa-fill-drip"></i></label>
-        <input type="color" name="fill-color" id="fill-color" value="#ffffff" oninput="onChangeTxtFill(this.value)">
+        <input type="color" name="fill-color" id="fill-color" value="#ffffff" oninput="onTxtChange(this.id, this.value)">
         <label for="stroke-color"><i class="fas fa-paint-brush"></i></label>
-        <input type="color" name="stroke-color" id="stroke-color" oninput="onChangeTxtStroke(this.value)">
-        <select name="txt-font" id="txt-font">
+        <input type="color" name="stroke-color" id="stroke-color" oninput="onTxtChange(this.name, this.value)">
+        <select name="txt-font" id="txt-font" oninput="onTxtChange(this.id, this.value)">
             <option value="Impact">Impact</option>
             <option value="Helvetica">Helvetica</option>
             <option value="Lucida Sans">Lucida</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Verdana">Verdana</option>
         </select>
         <button class="focus-older-txt" onclick="onChangeFocus('older')">Change Focus ⬆︎</button>
         <button class="focus-newer-txt" onclick="onChangeFocus('newer')">Change Focus ⬇︎</button>
         <button class="focus-none-txt" onclick="onChangeFocus('none')">Remove Focus ✖︎</button>
-        <button class="align-left" onclick="alignTxt('start')"><i class="fas fa-align-left"></i></button>
-        <button class="align-center" onclick="alignTxt('center')"><i class="fas fa-align-center"></i></button>
-        <button class="align-right" onclick="alignTxt('end')"><i class="fas fa-align-right"></i></button>
+        <button id="align-left" onclick="onTxtChange(this.id, 'start')"><i class="fas fa-align-left"></i></button>
+        <button id="align-center" onclick="onTxtChange(this.id, 'center')"><i class="fas fa-align-center"></i></button>
+        <button id="align-right" onclick="onTxtChange(this.id, 'end')"><i class="fas fa-align-right"></i></button>
     </section>
 
    

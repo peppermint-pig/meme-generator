@@ -29,16 +29,10 @@ function onMoveTxt(val) {
     drawImg();
 }
 
-function onAlignTxt(val) {
-    alignTxt(val);
-}
-
-function onChangeTxtFill(val) {
-    changeTxtFill(val);
-}
-
-function onChangeTxtStroke(id, val) {
-    changeTxtStroke(val);
+function onTxtChange(id, val) {
+    txtChange(id, val);
+    console.log(id);
+    drawImg();
 }
 
 function onChangeImg(imgId) {
