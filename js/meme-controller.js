@@ -31,11 +31,13 @@ function onMoveTxt(val) {
 
 function onTxtChange(id, val) {
     txtChange(id, val);
-    console.log(id);
     drawImg();
 }
 
 function onChangeImg(imgId) {
+    document.querySelector('.editor-modal').classList.toggle('modal-open');
+    document.querySelector('#gallery-section').classList.toggle('modal-open');
+    document.querySelector('.main footer').classList.toggle('modal-open');
     changeCurrImg(imgId);
     drawImg();
 }

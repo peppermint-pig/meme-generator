@@ -121,6 +121,8 @@ function txtChange(id, val) {
         case 'align-right':
             currLine.align = val;
             break;
+        case 'add-txt':
+            currLine.txt = val;
     }
 }
 

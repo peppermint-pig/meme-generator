@@ -1,53 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mister Meme</title>
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 </head>
-<body>
 
-    <section class="txt-editor">
-        <label for="add-txt">Say something funny:</label>
-        <input type="text" name="add-txt" id="add-txt" placeholder="Your text goes here" oninput="onTxtChange()">
-        <button class="add-line" onclick="onCreateNewLine()">+</button>
-        <button class="delete-line" onclick="onDeleteLine()"><i class="fas fa-trash-alt"></i></button>
-        <button class="txt-lrg" onclick="onChangeTxtSize('plus')">T+</button>
-        <button class="txt-sml" onclick="onChangeTxtSize('minus')">T-</button>
-        <button class="txt-up" onclick="onMoveTxt('up')">⬆︎</button>
-        <button class="txt-down" onclick="onMoveTxt('down')">⬇︎</button>
-        <button class="txt-down" onclick="onMoveTxt('left')">⬅︎</button>
-        <button class="txt-down" onclick="onMoveTxt('right')">➡︎</button>
-        <label for="fill-color"><i class="fas fa-fill-drip"></i></label>
-        <input type="color" name="fill-color" id="fill-color" value="#ffffff" oninput="onTxtChange(this.id, this.value)">
-        <label for="stroke-color"><i class="fas fa-paint-brush"></i></label>
-        <input type="color" name="stroke-color" id="stroke-color" oninput="onTxtChange(this.name, this.value)">
-        <select name="txt-font" id="txt-font" oninput="onTxtChange(this.id, this.value)">
-            <option value="Impact">Impact</option>
-            <option value="Helvetica">Helvetica</option>
-            <option value="Lucida Sans">Lucida</option>
-            <option value="Courier New">Courier New</option>
-            <option value="Verdana">Verdana</option>
-        </select>
-        <button class="focus-older-txt" onclick="onChangeFocus('older')">Change Focus ⬆︎</button>
-        <button class="focus-newer-txt" onclick="onChangeFocus('newer')">Change Focus ⬇︎</button>
-        <button class="focus-none-txt" onclick="onChangeFocus('none')">Remove Focus ✖︎</button>
-        <button id="align-left" onclick="onTxtChange(this.id, 'start')"><i class="fas fa-align-left"></i></button>
-        <button id="align-center" onclick="onTxtChange(this.id, 'center')"><i class="fas fa-align-center"></i></button>
-        <button id="align-right" onclick="onTxtChange(this.id, 'end')"><i class="fas fa-align-right"></i></button>
-    </section>
+<body class="gallery-page">
 
-   
-    <div class="canvas-container">
-        <canvas id="meme-canvas" height="500" width="500"></canvas>
-    </div>
+    <header class="main-header">
+        <div class=" main-header-content container">
+            <div class="logo">
+                <h1>Mister<span class="meme">Meme</span></h1>
+            </div>
+            <nav class="nav">
+                <a class="gallery-page" id="to-gallery" href="#gallery-section">Gallery</a>
+                <div class="seperator"></div>
+                <a class="about-page" id="to-about">About</a>
+            </nav>
+        </div>
+    </header>
 
-    <section class="gallery"></section>
+    <main class="main-content">
 
-   <script src="./js/meme-service.js"></script> 
-   <script src="./js/meme-controller.js"></script>
-   <script src="./js/storage-service.js"></script>
+        <div class="editor-modal">
+            <div class="modal-main">
+
+            <div class="canvas-container">
+                <canvas id="meme-canvas" height="500" width="500"></canvas>
+
+            </div>
+
+            <section class="txt-editor">
+                    <!-- <label for="add-txt">Say something funny:</label> -->
+                    <input type="text" name="add-txt" id="add-txt" placeholder="Your text goes here"
+                        oninput="onTxtChange(this.id, this.value)">
+                    <button class="add-line" onclick="onCreateNewLine()">+</button>
+                    <button class="delete-line" onclick="onDeleteLine()"><i class="fas fa-trash-alt"></i></button>
+                    <button id="align-left" onclick="onTxtChange(this.id, 'start')"><i
+                            class="fas fa-align-left"></i></button>
+                    <button id="align-center" onclick="onTxtChange(this.id, 'center')"><i
+                            class="fas fa-align-center"></i></button>
+                    <button id="align-right" onclick="onTxtChange(this.id, 'end')"><i
+                            class="fas fa-align-right"></i></button>
+                    <button class="focus focus-older-txt" onclick="onChangeFocus('older')">Change Focus <i
+                            class="fas fa-chevron-up"></i></button>
+                    <button class="focus focus-newer-txt" onclick="onChangeFocus('newer')">Change Focus <i
+                            class="fas fa-chevron-down"></i></button>
+                    <button class="focus focus-none-txt" onclick="onChangeFocus('none')">Remove Focus <i
+                            class="fas fa-times"></i></button>
+                    <button class="txt-lrg" onclick="onChangeTxtSize('plus')">T+</button>
+                    <button class="txt-sml" onclick="onChangeTxtSize('minus')">T-</button>
+                    <button class="txt-up" onclick="onMoveTxt('up')"><i class="fas fa-arrow-up"></i></button>
+                    <button class="txt-down" onclick="onMoveTxt('down')"><i class="fas fa-arrow-down"></i></button>
+                    <button class="txt-down" onclick="onMoveTxt('left')"><i class="fas fa-arrow-left"></i></button>
+                    <button class="txt-down" onclick="onMoveTxt('right')"><i class="fas fa-arrow-right"></i></button>
+                    <label for="fill-color"><i class="fas fa-fill-drip"></i></label>
+                    <label for="stroke-color"><i class="fas fa-paint-brush"></i></label>
+                    <select name="txt-font" id="txt-font" oninput="onTxtChange(this.id, this.value)">
+                        <option value="Impact">Impact</option>
+                        <option value="Helvetica">Helvetica</option>
+                        <option value="Lucida Sans">Lucida</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Verdana">Verdana</option>
+                    </select>
+                    <button onclick="onChangeImg()" class="exit-modal">Back to Gallery</button>
+                    <input type="color" name="stroke-color" id="stroke-color"
+                    oninput="onTxtChange(this.name, this.value)">
+                    <input type="color" name="fill-color" id="fill-color" value="#ffffff"
+                        oninput="onTxtChange(this.id, this.value)">
+            </section>
+        </div>
+            <footer class="modal footer">
+                <div class="logo">
+                    <h1>Mister<span class="meme">Meme</span></h1>
+                </div>
+                <small class=" small">©Coffee Rights 2020 <i class="fas fa-coffee"></i></small>
+            </footer>
+
+        </div>
+
+        <section class="container gallery" id="gallery-section"></section>
+
+    </main>
+
+    <footer class="main footer">
+        <div class="footer logo">
+            <h1>Mister<span class="meme">Meme</span></h1>
+        </div>
+        <small class="footer small">©Coffee Rights 2020 <i class="fas fa-coffee"></i></small>
+    </footer>
+
+    <script src="./js/meme-service.js"></script>
+    <script src="./js/meme-controller.js"></script>
+    <script src="./js/storage-service.js"></script>
 </body>
+
 </html>
