@@ -37,16 +37,16 @@ function init() {
     createImg()
     gCanvas = document.querySelector('#meme-canvas');
     gCtx = gCanvas.getContext('2d');
-    drawImg();
+    drawMeme();
 } 
 
-function drawImg() {
+function drawMeme() {
     var img = new Image();
     img.src = `img/meme-imgs (square)/${gMeme.selectedImgId}.jpg`;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-        drawTxt();
         markFocusedLine();
+        drawTxt();
     };
 }
 
@@ -105,7 +105,7 @@ function  moveTxt(val) {
 
 function txtChange(id, val) {
     const idx = getCurrLineIdx();
-    let currLine = gMeme.lines[idx];
+    const currLine = gMeme.lines[idx];
     switch (id) {
         case 'fill-color':
            currLine.fillColor = val 
@@ -122,7 +122,7 @@ function txtChange(id, val) {
             currLine.align = val;
             break;
         case 'add-txt':
-            currLine.txt = val;
+            currLine.txt = val.toUpperCase();
     }
 }
 
@@ -164,6 +164,13 @@ function getImgs() {
 
 function getCurrLineIdx() {
     return gMeme.selectedLineIdx;
+}
+
+function getCurrTxt() {
+    const idx = getCurrLineIdx;
+    var line = gMeme.lines[idx];
+    var txt = line.txt;
+    return txt;
 }
 
 function createImg() {

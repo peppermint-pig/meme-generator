@@ -17,6 +17,7 @@
             <div class="logo">
                 <h1>Mister<span class="meme">Meme</span></h1>
             </div>
+            <div class="menu-icon" onclick="onToggleMenu()"><i class="fas fa-bars"></i></div>
             <nav class="nav">
                 <a class="gallery-page" id="to-gallery" href="#gallery-section">Gallery</a>
                 <div class="seperator"></div>
@@ -28,7 +29,7 @@
     <main class="main-content">
 
         <div class="editor-modal">
-            <div class="modal-main">
+            <div class="modal-main container">
 
             <div class="canvas-container">
                 <canvas id="meme-canvas" height="500" width="500"></canvas>
@@ -75,7 +76,7 @@
                         oninput="onTxtChange(this.id, this.value)">
             </section>
         </div>
-            <footer class="modal footer">
+            <footer class="modal-footer">
                 <div class="logo">
                     <h1>Mister<span class="meme">Meme</span></h1>
                 </div>

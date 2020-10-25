@@ -6,46 +6,50 @@ function onTxtChange() {
     const idx = getCurrLineIdx()
     var changedTxt = document.querySelector('#add-txt').value;
     gMeme.lines[idx].txt = changedTxt.toUpperCase();
-    drawImg();
+    drawMeme();
 }
 
 function onCreateNewLine() {
     createNewLine();
-    drawImg();
+    drawMeme();
 }
 
 function onDeleteLine() {
     deleteLine();
-    drawImg();
+    drawMeme();
 }
 
 function onChangeTxtSize(val) {
     changeTxtSize(val);
-    drawImg();
+    drawMeme();
 }
 
 function onMoveTxt(val) {
     moveTxt(val);
-    drawImg();
+    drawMeme();
 }
 
 function onTxtChange(id, val) {
     txtChange(id, val);
-    drawImg();
+    drawMeme();
 }
 
 function onChangeImg(imgId) {
     changeCurrImg(imgId);
-    drawImg();
+    drawMeme();
     document.querySelector('.editor-modal').classList.toggle('modal-open');
     document.querySelector('#gallery-section').classList.toggle('modal-open');
-    document.querySelector('.main footer').classList.toggle('modal-open');
 }
 
 function onChangeFocus(val) {
     changeFocus(val);
     document.querySelector('#add-txt').value = '';
-    drawImg();
+    drawMeme();
+}
+
+function onToggleMenu() {
+    document.querySelector('.nav').classList.toggle('menu-open');
+    document.querySelector('.menu-icon').classList.toggle('menu-open');
 }
 
 function onRenderGallery() {
