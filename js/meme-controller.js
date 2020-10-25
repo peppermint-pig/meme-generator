@@ -35,11 +35,11 @@ function onTxtChange(id, val) {
 }
 
 function onChangeImg(imgId) {
+    changeCurrImg(imgId);
+    drawImg();
     document.querySelector('.editor-modal').classList.toggle('modal-open');
     document.querySelector('#gallery-section').classList.toggle('modal-open');
     document.querySelector('.main footer').classList.toggle('modal-open');
-    changeCurrImg(imgId);
-    drawImg();
 }
 
 function onChangeFocus(val) {
